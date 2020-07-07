@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package aplikasi_buku_telepon;
-
-import java.awt.*;
 import java.sql.*;
-import javax.swing.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**

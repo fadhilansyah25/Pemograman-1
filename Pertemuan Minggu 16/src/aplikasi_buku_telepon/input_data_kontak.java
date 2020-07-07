@@ -14,7 +14,6 @@ public class input_data_kontak extends javax.swing.JFrame {
 private Connection con_FadilArdiansyah;
 private Statement stat_FadilArdiansyah;
 private ResultSet res_FadilArdiansyah;
-private String t_FadilArdiansyah;
     /**
      * Creates new form input_data_kontak
      */
