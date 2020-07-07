@@ -5,7 +5,6 @@
  */
 package aplikasi_buku_telepon;
 import java.sql.*;
-
 import javax.swing.JOptionPane;
 /**
  *
@@ -15,7 +14,7 @@ public class input_data_kontak extends javax.swing.JFrame {
 private Connection con_FadilArdiansyah;
 private Statement stat_FadilArdiansyah;
 private ResultSet res_FadilArdiansyah;
-private Strign t_FadilArdiansyah;
+private String t_FadilArdiansyah;
     /**
      * Creates new form input_data_kontak
      */
@@ -42,7 +41,7 @@ private Strign t_FadilArdiansyah;
         nama_kontakTextField = new javax.swing.JTextField();
         no_kontakTextField = new javax.swing.JTextField();
         alamat_TextField = new javax.swing.JTextField();
-        Simpa_Button = new javax.swing.JButton();
+        Simpan_Button = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,10 +60,10 @@ private Strign t_FadilArdiansyah;
             }
         });
 
-        Simpa_Button.setText("Simpan");
-        Simpa_Button.addActionListener(new java.awt.event.ActionListener() {
+        Simpan_Button.setText("Simpan");
+        Simpan_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Simpa_ButtonActionPerformed(evt);
+                Simpan_ButtonActionPerformed(evt);
             }
         });
 
@@ -78,7 +77,7 @@ private Strign t_FadilArdiansyah;
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Simpa_Button)
+                    .addComponent(Simpan_Button)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -119,30 +118,28 @@ private Strign t_FadilArdiansyah;
                     .addComponent(jLabel4)
                     .addComponent(alamat_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addComponent(Simpa_Button)
+                .addComponent(Simpan_Button)
                 .addGap(51, 51, 51))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Simpa_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Simpa_ButtonActionPerformed
-        // TODO add your handling code here:
+    private void Simpan_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Simpan_ButtonActionPerformed
         try {
-            stat_FadilArdiansyah.executeQuery("insert into data_kontak values ("
-            + "'" + id_kontakTextField.getText() + "',"
-            + "'" + nama_kontakTextField.getText() + "',"
-            + "'" + no_kontakTextField.getText() + "',"
-            + "'" + alamat_TextField.getText() + "')");
+            stat_FadilArdiansyah.executeUpdate("insert into data_kontak values ("
+            +"'"+id_kontakTextField.getText()+"',"
+            +"'"+nama_kontakTextField.getText()+"',"
+            +"'"+no_kontakTextField.getText()+"',"
+            +"'"+alamat_TextField.getText()+"')");
             kosongkan();
             JOptionPane.showMessageDialog(null, "Berhasil menyimpan data");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Perintah salah : "+e);
         }
-    }//GEN-LAST:event_Simpa_ButtonActionPerformed
+    }//GEN-LAST:event_Simpan_ButtonActionPerformed
 
     private void id_kontakTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_kontakTextFieldActionPerformed
-        // TODO add your handling code here:
         try {
             res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from data_kontak where"+"id_kontak='"+id_kontakTextField.getText()+"'");
             while (res_FadilArdiansyah.next()) {
@@ -189,7 +186,7 @@ private Strign t_FadilArdiansyah;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Simpa_Button;
+    private javax.swing.JButton Simpan_Button;
     private javax.swing.JTextField alamat_TextField;
     private javax.swing.JTextField id_kontakTextField;
     private javax.swing.JLabel jLabel1;
