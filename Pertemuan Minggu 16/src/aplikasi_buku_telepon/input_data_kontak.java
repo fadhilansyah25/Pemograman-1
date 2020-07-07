@@ -4,18 +4,25 @@
  * and open the template in the editor.
  */
 package aplikasi_buku_telepon;
+import java.sql.*;
 
+import javax.swing.JOptionPane;
 /**
  *
  * @author Fadhilansyah25
  */
 public class input_data_kontak extends javax.swing.JFrame {
-
+private Connection con_FadilArdiansyah;
+private Statement stat_FadilArdiansyah;
+private ResultSet res_FadilArdiansyah;
+private Strign t_FadilArdiansyah;
     /**
      * Creates new form input_data_kontak
      */
     public input_data_kontak() {
         initComponents();
+        koneksi();
+        kosongkan();
     }
 
     /**
@@ -155,4 +162,22 @@ public class input_data_kontak extends javax.swing.JFrame {
     private javax.swing.JTextField nama_kontakTextField;
     private javax.swing.JTextField no_kontakTextField;
     // End of variables declaration//GEN-END:variables
+
+    private void koneksi() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con_FadilArdiansyah = DriverManager.getConnection("jdbc:mysql://127.0.0.1/database_kontak", "root", "");
+            stat_FadilArdiansyah = con_FadilArdiansyah.createStatement();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void kosongkan() {
+        id_kontakTextField.setText("");
+        nama_kontakTextField.setText("");
+        no_kontakTextField.setText("");
+        alamat_TextField.setText("");
+        id_kontakTextField.requestFocus();
+    }
 }
