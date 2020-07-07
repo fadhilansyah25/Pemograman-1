@@ -38,6 +38,7 @@ hs_err_pid*
 *.txt
 *.pdf
 
+### NetBeans ###
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
