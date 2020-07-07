@@ -55,7 +55,18 @@ private Strign t_FadilArdiansyah;
 
         jLabel4.setText("Alamat");
 
+        id_kontakTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                id_kontakTextFieldActionPerformed(evt);
+            }
+        });
+
         Simpa_Button.setText("Simpan");
+        Simpa_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Simpa_ButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("Input data kontak");
@@ -114,6 +125,33 @@ private Strign t_FadilArdiansyah;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Simpa_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Simpa_ButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            stat_FadilArdiansyah.executeQuery("insert into data_kontak values ("
+            + "'" + id_kontakTextField.getText() + "',"
+            + "'" + nama_kontakTextField.getText() + "',"
+            + "'" + no_kontakTextField.getText() + "',"
+            + "'" + alamat_TextField.getText() + "')");
+            kosongkan();
+            JOptionPane.showMessageDialog(null, "Berhasil menyimpan data");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Perintah salah : "+e);
+        }
+    }//GEN-LAST:event_Simpa_ButtonActionPerformed
+
+    private void id_kontakTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_kontakTextFieldActionPerformed
+        // TODO add your handling code here:
+        try {
+            res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from data_kontak where"+"id_kontak='"+id_kontakTextField.getText()+"'");
+            while (res_FadilArdiansyah.next()) {
+                {nama_kontakTextField.setText(res_FadilArdiansyah.getString("nama_kontak")); no_kontakTextField.setText(res_FadilArdiansyah.getString("no_kontak"));alamat_TextField.setText(res_FadilArdiansyah.getString("alamat"));}
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+    }//GEN-LAST:event_id_kontakTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
