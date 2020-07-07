@@ -22,6 +22,7 @@ private String t_FadilArdiansyah;
         initComponents();
         koneksi();
         kosongkan();
+        status();
     }
 
     /**
@@ -43,6 +44,8 @@ private String t_FadilArdiansyah;
         alamat_TextField = new javax.swing.JTextField();
         Simpan_Button = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        statusComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,10 +73,19 @@ private String t_FadilArdiansyah;
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("Input data kontak");
 
+        jLabel6.setText("Status");
+
+        statusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Keluarga", "Teman", "Kenalan", "Rekan Kerja" }));
+        statusComboBox.setSelectedIndex(-1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(93, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(89, 89, 89))
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,19 +101,19 @@ private String t_FadilArdiansyah;
                             .addComponent(id_kontakTextField)
                             .addComponent(nama_kontakTextField)
                             .addComponent(no_kontakTextField)
-                            .addComponent(alamat_TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))))
+                            .addComponent(alamat_TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(89, 89, 89))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(id_kontakTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -117,9 +129,13 @@ private String t_FadilArdiansyah;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(alamat_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(statusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(Simpan_Button)
-                .addGap(51, 51, 51))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -131,7 +147,8 @@ private String t_FadilArdiansyah;
             +"'"+id_kontakTextField.getText()+"',"
             +"'"+nama_kontakTextField.getText()+"',"
             +"'"+no_kontakTextField.getText()+"',"
-            +"'"+alamat_TextField.getText()+"')");
+            +"'"+alamat_TextField.getText()+"',"
+            +"'"+statusComboBox.getSelectedItem() +"')");
             kosongkan();
             JOptionPane.showMessageDialog(null, "Berhasil menyimpan data");
         } catch (Exception e) {
@@ -141,9 +158,13 @@ private String t_FadilArdiansyah;
 
     private void id_kontakTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_kontakTextFieldActionPerformed
         try {
-            res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from data_kontak where"+"id_kontak='"+id_kontakTextField.getText()+"'");
+            res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from data_kontak where"
+                    +"id_kontak='"+id_kontakTextField.getText()+"'");
             while (res_FadilArdiansyah.next()) {
-                {nama_kontakTextField.setText(res_FadilArdiansyah.getString("nama_kontak")); no_kontakTextField.setText(res_FadilArdiansyah.getString("no_kontak"));alamat_TextField.setText(res_FadilArdiansyah.getString("alamat"));}
+                {nama_kontakTextField.setText(res_FadilArdiansyah.getString("nama_kontak")); 
+                no_kontakTextField.setText(res_FadilArdiansyah.getString("no_kontak"));
+                alamat_TextField.setText(res_FadilArdiansyah.getString("alamat"));
+                statusComboBox.setSelectedItem(res_FadilArdiansyah.getString("status"));}
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e);
@@ -194,8 +215,10 @@ private String t_FadilArdiansyah;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nama_kontakTextField;
     private javax.swing.JTextField no_kontakTextField;
+    private javax.swing.JComboBox<String> statusComboBox;
     // End of variables declaration//GEN-END:variables
 
     private void koneksi() {
@@ -214,5 +237,10 @@ private String t_FadilArdiansyah;
         no_kontakTextField.setText("");
         alamat_TextField.setText("");
         id_kontakTextField.requestFocus();
+        statusComboBox.setSelectedIndex(-1);
+    }
+
+    private void status() {
+        statusComboBox.setSelectedIndex(-1);
     }
 }
