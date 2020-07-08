@@ -7,6 +7,7 @@ package aplikasi_buku_telepon;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Fadhilansyah25
@@ -15,6 +16,7 @@ public class input_data_bukutelepon extends javax.swing.JFrame {
 private Connection con_FadilArdiansyah;
 private Statement stat_FadilArdiansyah;
 private ResultSet res_FadilArdiansyah;
+private DefaultTableModel dtm_FadilArdiansyah;
     /**
      * Creates new form input_data_bukutelepon
      */
@@ -52,6 +54,7 @@ private ResultSet res_FadilArdiansyah;
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
         hapusButton = new javax.swing.JButton();
+        LihatButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,6 +117,13 @@ private ResultSet res_FadilArdiansyah;
             }
         });
 
+        LihatButton.setText("Lihat");
+        LihatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LihatButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,6 +143,9 @@ private ResultSet res_FadilArdiansyah;
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(jLabel6))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(StatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 154, Short.MAX_VALUE)
                                             .addComponent(alamat_TextField, javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,15 +156,14 @@ private ResultSet res_FadilArdiansyah;
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(Simpan_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(hapusButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Refresh_Button))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(jLabel6))))
+                                        .addGap(22, 22, 22)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(LihatButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(Refresh_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(148, 148, 148)
                                 .addComponent(jLabel7)))
-                        .addGap(0, 46, Short.MAX_VALUE))
+                        .addGap(0, 42, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)))
@@ -174,7 +186,8 @@ private ResultSet res_FadilArdiansyah;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(nama_kontakTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hapusButton))
+                    .addComponent(hapusButton)
+                    .addComponent(LihatButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -188,15 +201,14 @@ private ResultSet res_FadilArdiansyah;
                     .addComponent(jLabel5)
                     .addComponent(StatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Simpan_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Simpan_ButtonActionPerformed
-        // TODO add your handling code here:
         try {
             stat_FadilArdiansyah.executeUpdate("insert into data_kontak values ("
             +"'"+id_kontakTextField.getText()+"',"
@@ -212,7 +224,6 @@ private ResultSet res_FadilArdiansyah;
     }//GEN-LAST:event_Simpan_ButtonActionPerformed
 
     private void id_kontakTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_kontakTextFieldActionPerformed
-        // TODO add your handling code here:
         try {
             res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from data_kontak where"
                     +"id_kontak='"+id_kontakTextField.getText()+"'");
@@ -228,7 +239,6 @@ private ResultSet res_FadilArdiansyah;
     }//GEN-LAST:event_id_kontakTextFieldActionPerformed
 
     private void Refresh_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Refresh_ButtonActionPerformed
-        // TODO add your handling code here:
         try {
             tabel();
             JOptionPane.showMessageDialog(null, "Tabel Berhasil di Refresh");
@@ -238,7 +248,6 @@ private ResultSet res_FadilArdiansyah;
     }//GEN-LAST:event_Refresh_ButtonActionPerformed
 
     private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
-        // TODO add your handling code here:
         int ok_Fadil_Ardiansyah = JOptionPane.showConfirmDialog(null, "Yakin ingin menghapus data ini", "Hapus Data", JOptionPane.YES_NO_CANCEL_OPTION);
         if (ok_Fadil_Ardiansyah == 0) {
             try {
@@ -251,6 +260,39 @@ private ResultSet res_FadilArdiansyah;
             }
         }
     }//GEN-LAST:event_hapusButtonActionPerformed
+
+    private void LihatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatButtonActionPerformed
+        try {
+            Object [] rows_FadilArdiansyah = {"ID","Nama","No Kontak", "Alamat", "Status"};
+            dtm_FadilArdiansyah = new DefaultTableModel(null, rows_FadilArdiansyah);
+            Table.setModel(dtm_FadilArdiansyah);
+            Table.setBorder(null);
+            jScrollPane1.setVisible(true);
+            jScrollPane1.setViewportView(Table);
+            // int no_FadilArdiansyah;
+            String id_kontak = "",nama_kontak="",no_kontak="",alamat="",status="";
+            try {
+                String sql_FadilArdiansyah = "select * from data_kontak";
+                Statement st_FadilArdiansyah = con_FadilArdiansyah.createStatement();
+                ResultSet rs_FadilArdiansyah = st_FadilArdiansyah.executeQuery(sql_FadilArdiansyah);
+                while (rs_FadilArdiansyah.next()) {
+                    id_kontak = rs_FadilArdiansyah.getString("id_kontak");
+                    nama_kontak = rs_FadilArdiansyah.getString("nama_kontak");
+                    no_kontak = rs_FadilArdiansyah.getString("no_kontak");
+                    alamat = rs_FadilArdiansyah.getString("alamat");
+                    status = rs_FadilArdiansyah.getString("status");
+
+                    String[] tampil_FadilArdiansyah = {""+id_kontak,nama_kontak,no_kontak,alamat,status};
+                    dtm_FadilArdiansyah.addRow(tampil_FadilArdiansyah);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Query Salah"+e);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_LihatButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,6 +330,7 @@ private ResultSet res_FadilArdiansyah;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LihatButton;
     private javax.swing.JButton Refresh_Button;
     private javax.swing.JButton Simpan_Button;
     private javax.swing.JComboBox<String> StatusComboBox;
@@ -334,7 +377,7 @@ private ResultSet res_FadilArdiansyah;
         t_FadilArdiansyah.addColumn("ID");
         t_FadilArdiansyah.addColumn("Nama");
         t_FadilArdiansyah.addColumn("No Kontak");
-        t_FadilArdiansyah.addColumn("alamat");
+        t_FadilArdiansyah.addColumn("Alamat");
         t_FadilArdiansyah.addColumn("Status");
         Table.setModel(t_FadilArdiansyah);
         try {
