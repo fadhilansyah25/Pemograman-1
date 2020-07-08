@@ -108,6 +108,11 @@ private DefaultTableModel dtm_FadilArdiansyah;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Table);
 
         hapusButton.setText("Hapus");
@@ -293,6 +298,25 @@ private DefaultTableModel dtm_FadilArdiansyah;
             e.printStackTrace();
         }
     }//GEN-LAST:event_LihatButtonActionPerformed
+
+    private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
+        int i_FadilArdiansyah = Table.getSelectedRow();
+        if (i_FadilArdiansyah == -1) {
+            return;
+        }
+
+        String code = (String)Table.getValueAt(i_FadilArdiansyah, 0);
+        String code1 = (String)Table.getValueAt(i_FadilArdiansyah, 1);
+        String code2 = (String)Table.getValueAt(i_FadilArdiansyah, 2);
+        String code3 = (String)Table.getValueAt(i_FadilArdiansyah, 3);
+        String code4 = (String)Table.getValueAt(i_FadilArdiansyah, 4);
+        
+        id_kontakTextField.setText(code);
+        nama_kontakTextField.setText(code1);
+        no_kontakTextField.setText(code2);
+        alamat_TextField.setText(code3);
+        StatusComboBox.setSelectedItem(code4);
+    }//GEN-LAST:event_TableMouseClicked
 
     /**
      * @param args the command line arguments
