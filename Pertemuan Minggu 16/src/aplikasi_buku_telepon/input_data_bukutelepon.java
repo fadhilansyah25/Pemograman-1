@@ -51,6 +51,7 @@ private ResultSet res_FadilArdiansyah;
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
+        hapusButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +107,13 @@ private ResultSet res_FadilArdiansyah;
         ));
         jScrollPane1.setViewportView(Table);
 
+        hapusButton.setText("Hapus");
+        hapusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,7 +140,9 @@ private ResultSet res_FadilArdiansyah;
                                             .addComponent(nama_kontakTextField, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(id_kontakTextField, javax.swing.GroupLayout.Alignment.LEADING))
                                         .addGap(32, 32, 32)
-                                        .addComponent(Simpan_Button)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(Simpan_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(hapusButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addComponent(Refresh_Button))
                                     .addGroup(layout.createSequentialGroup()
@@ -163,7 +173,8 @@ private ResultSet res_FadilArdiansyah;
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nama_kontakTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nama_kontakTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hapusButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -226,6 +237,21 @@ private ResultSet res_FadilArdiansyah;
         }
     }//GEN-LAST:event_Refresh_ButtonActionPerformed
 
+    private void hapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusButtonActionPerformed
+        // TODO add your handling code here:
+        int ok_Fadil_Ardiansyah = JOptionPane.showConfirmDialog(null, "Yakin ingin menghapus data ini", "Hapus Data", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (ok_Fadil_Ardiansyah == 0) {
+            try {
+                String sql_FadilArdiansyah = "delete from data_kontak where id_kontak='"+id_kontakTextField.getText()+"'";
+                PreparedStatement st_FadilArdiansyah = con_FadilArdiansyah.prepareStatement(sql_FadilArdiansyah);
+                st_FadilArdiansyah.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Hapus Data sukses");   
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Hapus Data Gagal"+e);
+            }
+        }
+    }//GEN-LAST:event_hapusButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,6 +293,7 @@ private ResultSet res_FadilArdiansyah;
     private javax.swing.JComboBox<String> StatusComboBox;
     private javax.swing.JTable Table;
     private javax.swing.JTextField alamat_TextField;
+    private javax.swing.JButton hapusButton;
     private javax.swing.JTextField id_kontakTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
