@@ -113,7 +113,7 @@ private ResultSet res_FadilArdianysah;
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel9.setText("Entry Data Mahasiswa");
+        jLabel9.setText("Hapus Data Mahasiswa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -150,7 +150,7 @@ private ResultSet res_FadilArdianysah;
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(102, 102, 102))
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
