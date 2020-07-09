@@ -48,7 +48,7 @@ private ResultSet res_FadilArdianysah;
         jScrollPane1 = new javax.swing.JScrollPane();
         alamat_TextArea = new javax.swing.JTextArea();
         agama_ComboBox = new javax.swing.JComboBox<>();
-        simpan_Button = new javax.swing.JButton();
+        Ubah_Button = new javax.swing.JButton();
         clear_Button = new javax.swing.JButton();
         kembali_Button = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -91,10 +91,10 @@ private ResultSet res_FadilArdianysah;
         agama_ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Islam", "Kristen", "Hindu", "Budha", "Konghuchu", "Lain-Lain" }));
         agama_ComboBox.setSelectedIndex(-1);
 
-        simpan_Button.setText("Simpan");
-        simpan_Button.addActionListener(new java.awt.event.ActionListener() {
+        Ubah_Button.setText("Ubah");
+        Ubah_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simpan_ButtonActionPerformed(evt);
+                Ubah_ButtonActionPerformed(evt);
             }
         });
 
@@ -113,7 +113,7 @@ private ResultSet res_FadilArdianysah;
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel9.setText("Entry Data Mahasiswa");
+        jLabel9.setText("Ubah Data Mahasiswa");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,16 +121,16 @@ private ResultSet res_FadilArdianysah;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(simpan_Button))
+                    .addComponent(Ubah_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -193,7 +193,7 @@ private ResultSet res_FadilArdianysah;
                     .addComponent(agama_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(simpan_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Ubah_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clear_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(kembali_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53))
@@ -201,25 +201,6 @@ private ResultSet res_FadilArdianysah;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void simpan_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpan_ButtonActionPerformed
-        // TODO add your handling code here:
-        try {
-            stat_FadilArdiansyah.executeUpdate("insert into datamahasiswa values ("
-            +"'"+nim_TextField.getText()+"',"
-            +"'"+nama_TextField.getText()+"',"
-            +"'"+telepon_TextField.getText()+"',"
-            +"'"+jurusan_ComboBox.getSelectedItem()+"',"
-            +"'"+TTL_TextField.getText()+"',"
-            +"'"+jenis_kelaminComboBox.getSelectedItem()+"',"
-            +"'"+alamat_TextArea.getText()+"',"
-            +"'"+agama_ComboBox.getSelectedItem()+"')");
-            kosongkan();
-            JOptionPane.showMessageDialog(null, "Data Berhasil disimpan");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Query Salah "+e);
-        }
-    }//GEN-LAST:event_simpan_ButtonActionPerformed
 
     private void nim_TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nim_TextFieldActionPerformed
         // TODO add your handling code here:
@@ -247,6 +228,35 @@ private ResultSet res_FadilArdianysah;
     private void kembali_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali_ButtonActionPerformed
         dispose();
     }//GEN-LAST:event_kembali_ButtonActionPerformed
+
+    private void Ubah_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ubah_ButtonActionPerformed
+        // TODO add your handling code here:
+        int ok_FadilArdiansyah = JOptionPane.showConfirmDialog(null, "Apakah Yakin ingin mengubah data ini?", "Update Data", JOptionPane.YES_NO_CANCEL_OPTION);
+        try {
+            PreparedStatement st_FadilArdiansyah = con_FadilArdiansyah.prepareStatement(
+            "update datamahasiswa set nim=?, nama=?, telepon=?, jurusan=?, TTL=?, jenis_kelamin=?,alamat=?, agama=?, where nim='"
+            +nim_TextField.getText()+"'");
+            if (ok_FadilArdiansyah == 0) {
+                try {
+                    st_FadilArdiansyah.setString(1, nim_TextField.getText());
+                    st_FadilArdiansyah.setString(2, nama_TextField.getText());
+                    st_FadilArdiansyah.setString(3, telepon_TextField.getText());
+                    st_FadilArdiansyah.setString(4, (String)jurusan_ComboBox.getSelectedItem());
+                    st_FadilArdiansyah.setString(5, TTL_TextField.getText());
+                    st_FadilArdiansyah.setString(6, (String)jenis_kelaminComboBox.getSelectedItem());
+                    st_FadilArdiansyah.setString(7, alamat_TextArea.getText());
+                    st_FadilArdiansyah.setString(8, (String)agama_ComboBox.getSelectedItem());
+                    st_FadilArdiansyah.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "Update Berhasil");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Update Gagal");
+                }
+            }
+        } catch (Exception e) {
+            
+        }
+    }//GEN-LAST:event_Ubah_ButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -286,6 +296,7 @@ private ResultSet res_FadilArdianysah;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TTL_TextField;
+    private javax.swing.JButton Ubah_Button;
     private javax.swing.JComboBox<String> agama_ComboBox;
     private javax.swing.JTextArea alamat_TextArea;
     private javax.swing.JButton clear_Button;
@@ -304,7 +315,6 @@ private ResultSet res_FadilArdianysah;
     private javax.swing.JButton kembali_Button;
     private javax.swing.JTextField nama_TextField;
     private javax.swing.JTextField nim_TextField;
-    private javax.swing.JButton simpan_Button;
     private javax.swing.JTextField telepon_TextField;
     // End of variables declaration//GEN-END:variables
 
