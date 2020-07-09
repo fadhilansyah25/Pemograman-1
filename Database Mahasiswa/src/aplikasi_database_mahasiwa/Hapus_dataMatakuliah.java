@@ -79,7 +79,7 @@ private ResultSet res_FadilArdianysah;
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel9.setText("Hapus Mata Kuliah");
+        jLabel9.setText("Hapus Data Matakuliah");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
