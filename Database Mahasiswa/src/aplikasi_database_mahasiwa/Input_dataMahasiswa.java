@@ -245,7 +245,7 @@ private ResultSet res_FadilArdianysah;
     }//GEN-LAST:event_clear_ButtonActionPerformed
 
     private void kembali_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembali_ButtonActionPerformed
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_kembali_ButtonActionPerformed
     
     /**
