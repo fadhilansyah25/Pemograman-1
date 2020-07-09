@@ -272,7 +272,7 @@ private DefaultTableModel dtm_FadilArdiansyah;
 
     private void id_kontakTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_kontakTextFieldActionPerformed
         try {
-            res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from data_kontak where"
+            res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from data_kontak where "
                     +"id_kontak='"+id_kontakTextField.getText()+"'");
             while (res_FadilArdiansyah.next()) {
                 {nama_kontakTextField.setText(res_FadilArdiansyah.getString("nama_kontak")); 
