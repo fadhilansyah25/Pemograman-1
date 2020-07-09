@@ -150,14 +150,39 @@ public class menu_utamacoba extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon("D:\\FADIL\\Belajar CMD-Git-Github\\Pemograman-1\\Database Mahasiswa\\src\\logo_unpam.png")); // NOI18N
 
         LihatMatkul_Button.setText("Lihat");
+        LihatMatkul_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LihatMatkul_ButtonActionPerformed(evt);
+            }
+        });
 
         TambahMatkul_Button.setText("Tambah");
+        TambahMatkul_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TambahMatkul_ButtonActionPerformed(evt);
+            }
+        });
 
         UbahMatkul_Button.setText("Ubah");
+        UbahMatkul_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UbahMatkul_ButtonActionPerformed(evt);
+            }
+        });
 
         HapusMatkul_Button.setText("Hapus");
+        HapusMatkul_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusMatkul_ButtonActionPerformed(evt);
+            }
+        });
 
         KeluarMatkul_Button.setText("Keluar");
+        KeluarMatkul_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarMatkul_ButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Menu Utama Database Matakuliah");
@@ -293,6 +318,31 @@ public class menu_utamacoba extends javax.swing.JFrame {
         jLayeredPane1.setVisible(false);
         jLayeredPane2.setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void LihatMatkul_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatMatkul_ButtonActionPerformed
+        // TODO add your handling code here:
+        new tabel_dataMatakuliah().setVisible(true);
+    }//GEN-LAST:event_LihatMatkul_ButtonActionPerformed
+
+    private void TambahMatkul_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahMatkul_ButtonActionPerformed
+        // TODO add your handling code here:
+        new Input_dataMatakuliah().setVisible(true);
+    }//GEN-LAST:event_TambahMatkul_ButtonActionPerformed
+
+    private void UbahMatkul_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UbahMatkul_ButtonActionPerformed
+        // TODO add your handling code here:
+        new Ubah_dataMatakuliah().setVisible(true);
+    }//GEN-LAST:event_UbahMatkul_ButtonActionPerformed
+
+    private void HapusMatkul_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusMatkul_ButtonActionPerformed
+        // TODO add your handling code here:
+        new Hapus_dataMatakuliah().setVisible(true);
+    }//GEN-LAST:event_HapusMatkul_ButtonActionPerformed
+
+    private void KeluarMatkul_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarMatkul_ButtonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_KeluarMatkul_ButtonActionPerformed
 
     /**
      * @param args the command line arguments

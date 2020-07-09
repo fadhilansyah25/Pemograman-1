@@ -263,26 +263,41 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Lihat"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LihatMatkul_ButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="TambahMatkul_Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tambah"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TambahMatkul_ButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="UbahMatkul_Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ubah"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UbahMatkul_ButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="HapusMatkul_Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hapus"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HapusMatkul_ButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="KeluarMatkul_Button">
           <Properties>
             <Property name="text" type="java.lang.String" value="Keluar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KeluarMatkul_ButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
