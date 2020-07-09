@@ -11,14 +11,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Fadhilansyah25
  */
-public class tabel_dataMahasiswa extends javax.swing.JFrame {
+public class tabel_dataMatakuliah extends javax.swing.JFrame {
 private Connection con_FadilArdiansyah;
 private Statement stat_FadilArdiansyah;
 private ResultSet res_FadilArdiansyah;
     /**
      * Creates new form tabel_dataMahasiswa
      */
-    public tabel_dataMahasiswa() {
+    public tabel_dataMatakuliah() {
         initComponents();
         koneksi();
         tabel();
@@ -34,7 +34,7 @@ private ResultSet res_FadilArdiansyah;
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        datamahasiswaTable = new javax.swing.JTable();
+        dataMatakulaihTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         KembaliButton = new javax.swing.JButton();
         refreshButton = new javax.swing.JButton();
@@ -42,7 +42,7 @@ private ResultSet res_FadilArdiansyah;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Daftar Data Mahasiswa");
 
-        datamahasiswaTable.setModel(new javax.swing.table.DefaultTableModel(
+        dataMatakulaihTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,10 +53,10 @@ private ResultSet res_FadilArdiansyah;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(datamahasiswaTable);
+        jScrollPane1.setViewportView(dataMatakulaihTable);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Data Mahasiswa");
+        jLabel1.setText("Data Matakuliah");
 
         KembaliButton.setText("Kembali");
         KembaliButton.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +79,7 @@ private ResultSet res_FadilArdiansyah;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -97,8 +97,8 @@ private ResultSet res_FadilArdiansyah;
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(KembaliButton)
                         .addComponent(refreshButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -132,27 +132,28 @@ private ResultSet res_FadilArdiansyah;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(tabel_dataMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tabel_dataMatakuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(tabel_dataMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tabel_dataMatakuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(tabel_dataMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tabel_dataMatakuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(tabel_dataMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(tabel_dataMatakuliah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tabel_dataMahasiswa().setVisible(true);
+                new tabel_dataMatakuliah().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton KembaliButton;
-    private javax.swing.JTable datamahasiswaTable;
+    private javax.swing.JTable dataMatakulaihTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton refreshButton;
@@ -170,27 +171,17 @@ private ResultSet res_FadilArdiansyah;
 
     private void tabel() {
         DefaultTableModel t_FadilArdiansyah = new DefaultTableModel();
-        t_FadilArdiansyah.addColumn("NIM");
-        t_FadilArdiansyah.addColumn("Nama");
-        t_FadilArdiansyah.addColumn("Telepon");
-        t_FadilArdiansyah.addColumn("Jurusan");
-        t_FadilArdiansyah.addColumn("TTL");
-        t_FadilArdiansyah.addColumn("Jenis Kelamin");
-        t_FadilArdiansyah.addColumn("Alamat");
-        t_FadilArdiansyah.addColumn("agama");
-        datamahasiswaTable.setModel(t_FadilArdiansyah);
+        t_FadilArdiansyah.addColumn("Kode Matakuliah");
+        t_FadilArdiansyah.addColumn("Nama Matakuliah");
+        t_FadilArdiansyah.addColumn("SKS");
+        dataMatakulaihTable.setModel(t_FadilArdiansyah);
         try {
-            res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from datamahasiswa");
+            res_FadilArdiansyah = stat_FadilArdiansyah.executeQuery("select * from matakuliah");
             while (res_FadilArdiansyah.next()) {
                 t_FadilArdiansyah.addRow(new Object[]{
-                    res_FadilArdiansyah.getString("nim"),
-                    res_FadilArdiansyah.getString("nama"),
-                    res_FadilArdiansyah.getString("telepon"),
-                    res_FadilArdiansyah.getString("jurusan"),
-                    res_FadilArdiansyah.getString("TTL"),
-                    res_FadilArdiansyah.getString("jenis_kelamin"),
-                    res_FadilArdiansyah.getString("alamat"),
-                    res_FadilArdiansyah.getString("agama")      
+                    res_FadilArdiansyah.getString("kode_matakuliah"),
+                    res_FadilArdiansyah.getString("nama_matakuliah"),
+                    res_FadilArdiansyah.getString("sks")   
                 });
             }
         } catch (Exception e) {
