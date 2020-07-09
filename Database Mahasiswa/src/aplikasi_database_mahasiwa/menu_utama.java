@@ -142,6 +142,7 @@ public class menu_utama extends javax.swing.JFrame {
 
     private void UbahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UbahButtonActionPerformed
         // TODO add your handling code here:
+        new Ubah_dataMahasiswa().setVisible(true);
     }//GEN-LAST:event_UbahButtonActionPerformed
 
     private void HapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButtonActionPerformed
