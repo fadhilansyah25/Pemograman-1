@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package aplikasi_database_mahasiwa;
-
 import java.sql.*;
-
 import javax.swing.JOptionPane;
  /*
  * @author Fadhilansyah25
