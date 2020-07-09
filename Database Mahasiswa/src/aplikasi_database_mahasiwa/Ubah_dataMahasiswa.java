@@ -233,9 +233,7 @@ private ResultSet res_FadilArdianysah;
         // TODO add your handling code here:
         int ok_FadilArdiansyah = JOptionPane.showConfirmDialog(null, "Apakah Yakin ingin mengubah data ini?", "Update Data", JOptionPane.YES_NO_CANCEL_OPTION);
         try {
-            PreparedStatement st_FadilArdiansyah = con_FadilArdiansyah.prepareStatement(
-            "update datamahasiswa set nim=?, nama=?, telepon=?, jurusan=?, TTL=?, jenis_kelamin=?,alamat=?, agama=?, where nim='"
-            +nim_TextField.getText()+"'");
+            PreparedStatement st_FadilArdiansyah = con_FadilArdiansyah.prepareStatement("update datamahasiswa set nim=?,nama=?,telepon=?,jurusan=?,TTL=?,jenis_kelamin=?,alamat=?,agama=? where nim='"+nim_TextField.getText()+"'");
             if (ok_FadilArdiansyah == 0) {
                 try {
                     st_FadilArdiansyah.setString(1, nim_TextField.getText());
@@ -250,7 +248,7 @@ private ResultSet res_FadilArdianysah;
 
                     JOptionPane.showMessageDialog(null, "Update Berhasil");
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Update Gagal");
+                    JOptionPane.showMessageDialog(null, "Update Gagal"+e);
                 }
             }
         } catch (Exception e) {
