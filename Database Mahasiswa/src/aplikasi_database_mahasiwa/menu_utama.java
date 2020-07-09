@@ -53,10 +53,25 @@ public class menu_utama extends javax.swing.JFrame {
         });
 
         UbahButton.setText("Ubah");
+        UbahButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UbahButtonActionPerformed(evt);
+            }
+        });
 
         HapusButton.setText("Hapus");
+        HapusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HapusButtonActionPerformed(evt);
+            }
+        });
 
         KeluarButton.setText("Keluar");
+        KeluarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeluarButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Menu Utama Database Mahasiswa");
@@ -119,6 +134,20 @@ public class menu_utama extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Input_dataMahasiswa().setVisible(true);
     }//GEN-LAST:event_TambahButtonActionPerformed
+
+    private void KeluarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeluarButtonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_KeluarButtonActionPerformed
+
+    private void UbahButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UbahButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UbahButtonActionPerformed
+
+    private void HapusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusButtonActionPerformed
+        // TODO add your handling code here:
+        new Hapus_dataMahasiswa().setVisible(true);
+    }//GEN-LAST:event_HapusButtonActionPerformed
 
     /**
      * @param args the command line arguments
